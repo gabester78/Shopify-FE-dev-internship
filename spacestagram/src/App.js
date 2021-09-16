@@ -1,5 +1,5 @@
 import PhotoData  from './Components/PhotoData';
-import './App.css';
+import './App.scss';
 
 
 function App() {

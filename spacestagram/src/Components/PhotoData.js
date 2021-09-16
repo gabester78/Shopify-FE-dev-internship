@@ -23,7 +23,14 @@ const PhotoData = () => {
 
   return (
     <main>
+
+      <header>
+        <h1>Spacestagram</h1>
+        <p>Made possible by Nasa's Astronomy Picture of the Day API</p>
+      </header>
+
       <Photo data={data}/>
+      
     </main>
   );
 }
