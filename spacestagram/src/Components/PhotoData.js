@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Photo from "./Photo"
 
-const PhotoData = () => {
+const PhotoData = (props) => {
 
   const [data, setData] = useState([]);
-  // const [photoDate, setPhotoDate] = useState('1990-09-16')
+  const [photoDate, setPhotoDate] = useState('')
   // date=${photoDate}&
 
   useEffect(() => {
     axios
       .get(
-        `https://api.nasa.gov/planetary/apod?api_key=bYvfakGHRLIWCbWchDF6bsB9Fb336Qg5nJ3UUb2G`
+        `https://api.nasa.gov/planetary/apod?&date=${photoDate}&api_key=bYvfakGHRLIWCbWchDF6bsB9Fb336Qg5nJ3UUb2G`
       )
       .then((response) => {
         setData(response.data);
@@ -19,7 +19,9 @@ const PhotoData = () => {
       .catch((error) => {
         console.log("the data was not returned", error);
       });
-  }, []);
+  }, [photoDate]);
+
+  console.log("photoDate", photoDate)
 
   return (
     <main>
@@ -29,7 +31,7 @@ const PhotoData = () => {
         <p>Made possible by Nasa's Astronomy Picture of the Day API</p>
       </header>
 
-      <Photo data={data}/>
+      <Photo data={data} changeDate={date => setPhotoDate(date)}/>
       
     </main>
   );
