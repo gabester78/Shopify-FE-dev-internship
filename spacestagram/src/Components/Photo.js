@@ -2,6 +2,16 @@ import React from "react";
 import ReactPlayer from 'react-player'
 
 const Photo = (props) => {
+    
+    const getCurrentDate = () => {
+
+        var date = new Date().getDate();
+        var month = new Date().getMonth() + 1;
+        var year = new Date().getFullYear();
+        var formattedMonth =  month < 10 ? '0' + month : '' + month
+
+        return year + '-' + formattedMonth + '-' + date;
+    }
 
     return (
         <article>
@@ -30,8 +40,8 @@ const Photo = (props) => {
                 <div>
                     <button>Like</button>
                     <div>
-                        <label htmlFor="imageDate">Choose a different date to view</label>
-                        <input type="date" id="imageDate" onChange={(e) => props.changeDate(e.target.value)}></input>
+                        <label htmlFor="imageDate">Choose a previous date to view</label>
+                        <input type="date" id="imageDate" max={getCurrentDate()} onChange={(e) => props.changeDate(e.target.value)}></input>
                     </div>
                 </div>
             </section>

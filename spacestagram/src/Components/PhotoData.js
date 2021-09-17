@@ -6,7 +6,6 @@ const PhotoData = (props) => {
 
   const [data, setData] = useState([]);
   const [photoDate, setPhotoDate] = useState('')
-  // date=${photoDate}&
 
   useEffect(() => {
     axios
@@ -22,7 +21,6 @@ const PhotoData = (props) => {
   }, [photoDate]);
 
   console.log("photoDate", photoDate)
-
   return (
     <main>
 
