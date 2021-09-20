@@ -29,13 +29,8 @@ const Photo = (props) => {
         <article>
 
             <section className="dataImage">
-                {props.data.media_type === 'image' && (
-                    <img src={props.data.url} alt="Nasa's Astronomy view of the day"/>
-                )}
-
-                {props.data.media_type === 'video' && (
-                    <ReactPlayer url={props.data.url} width={'100%'} controls={true} style={{borderTopLeftRadius: "20px", borderTopRightRadius: "20px", overflow:"hidden"}}/>
-                )}
+                {props.data.media_type === 'image' ? <img src={props.data.url} alt="Nasa's Astronomy view of the day"/> :
+                <ReactPlayer url={props.data.url} width={'100%'} controls={true} style={{borderTopLeftRadius: "20px", borderTopRightRadius: "20px", overflow:"hidden", boxShadow: "0px 0px 20px #676767"}}/>}
             </section>
             
             <section className="dataDetails">
@@ -44,10 +39,9 @@ const Photo = (props) => {
                     <time>{props.data.date}</time>
                 </div>
                 {props.data.copyright && (
-                    <h3>Copyright by: {props.data.copyright}</h3>
+                    <h5>Copyright by: {props.data.copyright}</h5>
                     //Inline If with Logical && Operator since not every photo may contain a copyright
                 )}
-
                 <p>{props.data.explanation}</p>
                 
                 <article className="interactionContainer">

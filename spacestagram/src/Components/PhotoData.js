@@ -36,6 +36,7 @@ const PhotoData = (props) => {
   const [endDate, setEndDate] = useState("")
   const [multipleImageData, setMultipleImageData] = useState([])
   const [switchDisplayType, setSwitchDisplayType] = useState(false)
+  const [dateError, setDateError] = useState(false) 
 
   useEffect(() => {
     axios
@@ -51,6 +52,10 @@ const PhotoData = (props) => {
   }, [imageDay])
 
   const fetchDayRange = (e) =>{
+    if (startDate > endDate){
+      setDateError(true)
+    } else {
+    setDateError(false)
     setSwitchDisplayType(true)
     setDefaultDay(false)
     e.preventDefault();
@@ -64,6 +69,7 @@ const PhotoData = (props) => {
       .catch((error) => {
         console.log("the data was not returned", error)
       });
+    }
   }
 
   const fetchSingleDay = (e) =>{
@@ -82,7 +88,7 @@ const PhotoData = (props) => {
         console.log("the data was not returned", error)
       });
   }
-
+  
   return (
     <main>
 
@@ -96,16 +102,25 @@ const PhotoData = (props) => {
       <article className="datesContainer">
 
           <label htmlFor="imageDate">Choose a previous date to view</label>
-          <input type="date" id="imageDate" max={getCurrentDate()} onChange={(e) => setImageDay(e.target.value)}></input>
+          <input type="date" id="imageDate" max={getCurrentDate()} onChange={(e) => setImageDay(e.target.value)}/>
           <button className="blue" onClick={fetchSingleDay}>Submit date</button>
           <p className="divider">Or choose a range of dates to view</p>
 
           <div className="rangeContainer">
             <label htmlFor="imageStartDate">Choose a start date</label>
-            <input className="startDate" type="date" id="imageStartDate" max={getYesterdayDate()} onChange={(e) => setStartDate(e.target.value)}></input>
+            <input className="startDate" type="date" id="imageStartDate" max={getYesterdayDate()} onChange={(e) => setStartDate(e.target.value)} />
             <label htmlFor="imageEndDate">Choose a end date</label>
-            <input type="date" id="imageEndDate" max={getCurrentDate()} onChange={(e) => setEndDate(e.target.value)}></input>
-            <button className="blue" onClick={fetchDayRange}>Submit range of dates</button>
+            <input type="date" id="imageEndDate" max={getCurrentDate()} onChange={(e) => setEndDate(e.target.value)} />
+              
+              <div>
+                <button className="blue" onClick={fetchDayRange}>Submit range of dates</button>
+                {dateError && (
+                  <div className="errorContainer">
+                    <p id="errorMessage">The start date can not be higher than the end date.</p>
+                  </div>)
+                }
+            </div>
+          
           </div>
 
       </article>
