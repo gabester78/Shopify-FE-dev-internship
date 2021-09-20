@@ -97,7 +97,7 @@ const PhotoData = (props) => {
 
           <label htmlFor="imageDate">Choose a previous date to view</label>
           <input type="date" id="imageDate" max={getCurrentDate()} onChange={(e) => setImageDay(e.target.value)}></input>
-          <button onClick={fetchSingleDay}>Submit date</button>
+          <button className="blue" onClick={fetchSingleDay}>Submit date</button>
           <p className="divider">Or choose a range of dates to view</p>
 
           <div className="rangeContainer">
@@ -105,7 +105,7 @@ const PhotoData = (props) => {
             <input className="startDate" type="date" id="imageStartDate" max={getYesterdayDate()} onChange={(e) => setStartDate(e.target.value)}></input>
             <label htmlFor="imageEndDate">Choose a end date</label>
             <input type="date" id="imageEndDate" max={getCurrentDate()} onChange={(e) => setEndDate(e.target.value)}></input>
-            <button onClick={fetchDayRange}>Submit range of dates</button>
+            <button className="blue" onClick={fetchDayRange}>Submit range of dates</button>
           </div>
 
       </article>

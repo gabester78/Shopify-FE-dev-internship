@@ -76,17 +76,17 @@ article {
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
       margin-bottom: -5px;
-      box-shadow: 0px 0px 20px #cccccc;
+      box-shadow: 0px 0px 20px #676767;
     }
   }
 
   .dataDetails {
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
-    border: 1px solid lightgray;
+    border: 1px solid black;
     padding: 20px;
     margin-bottom: 40px;
-    box-shadow: 0px 0px 20px #cccccc;
+    box-shadow: 0px 0px 20px #676767;
 
     div {
       display: flex;
@@ -115,5 +115,79 @@ article {
     button {
       font-size: 1.4rem;
     }
+
+    .interactionContainer {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 40px;
+      margin: 0px;
+
+      div {
+        box-sizing: border-box;
+        width: 115px;
+        border: 1px solid red;
+        border-radius: 10px;
+        color: red;
+        cursor: pointer;
+        padding: 5px 20px;
+        border-radius: 10px;
+        transition: box-shadow 800ms ease-in-out, color 800ms ease-in-out;
+      }
+      div:hover,
+      div:focus {
+        color: #fff;
+        outline: 0;
+        box-shadow: 0 0 40px 40px red inset;
+      }
+
+      #icons {
+        font-size: 2rem;
+        margin-right: 10px;
+      }
+
+      p {
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin-bottom: 0px;
+        margin-top: 0px;
+      }
+
+      .blue {
+        box-sizing: border-box;
+        border: 1px solid darkblue;
+        background-color: transparent;
+        border-radius: 10px;
+        color: darkblue;
+        cursor: pointer;
+        padding: 5px 20px;
+        border-radius: 10px;
+        transition: box-shadow 800ms ease-in-out, color 800ms ease-in-out;
+      }
+      .blue:hover,
+      .blue:focus {
+        color: #fff;
+        outline: 0;
+        box-shadow: 0 0 40px 40px darkblue inset;
+      }
+    }
+  }
+
+  .blue {
+    box-sizing: border-box;
+    border: 1px solid darkblue;
+    background-color: transparent;
+    border-radius: 10px;
+    color: darkblue;
+    cursor: pointer;
+    padding: 5px 20px;
+    border-radius: 10px;
+    transition: box-shadow 800ms ease-in-out, color 800ms ease-in-out;
+  }
+  .blue:hover,
+  .blue:focus {
+    color: #fff;
+    outline: 0;
+    box-shadow: 0 0 40px 40px darkblue inset;
   }
 }

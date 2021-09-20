@@ -1,7 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactPlayer from 'react-player'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart, faShare } from '@fortawesome/free-solid-svg-icons'
+
 
 const Photo = (props) => {
+
+    const [likeText, setLikeText] = useState(false)
+    const [likeButton, setLikeButton] = useState("Like")
+
+    const changeLike = () => {
+        if (likeText){
+            setLikeText(false)
+            setLikeButton("Like")
+        } else {
+            setLikeText(true)
+            setLikeButton("Liked")
+        }
+    }
+
+    const [shareButton, setShareButton] = useState("Share")
+
+    const changeShare = () => {
+        setShareButton("Shared")
+    }
 
     return (
         <article>
@@ -27,7 +49,21 @@ const Photo = (props) => {
                 )}
 
                 <p>{props.data.explanation}</p>
-                <button>Like</button>
+                
+                <article className="interactionContainer">
+
+                    <div onClick={changeLike}>
+                        <FontAwesomeIcon id="icons" icon={faHeart} />
+                        <p>{likeButton}</p>
+                    </div>
+
+                    <div onClick={changeShare} className="blue"> 
+                        <FontAwesomeIcon id="icons" icon={faShare} />
+                        <p>{shareButton}</p>
+                    </div>
+                    
+                </article>
+
             </section>
 
         </article>
