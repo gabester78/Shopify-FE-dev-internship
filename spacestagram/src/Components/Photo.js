@@ -22,7 +22,7 @@ const Photo = (props) => {
                 )}
 
                 {props.data.media_type === 'video' && (
-                    <ReactPlayer url={props.data.url} width={'100%'} controls={true} />  
+                    <ReactPlayer url={props.data.url} width={'100%'} controls={true} style={{marginBottom:"-20px"}}/>  
                 )}
             </section>
             
@@ -37,13 +37,7 @@ const Photo = (props) => {
                 )}
 
                 <p>{props.data.explanation}</p>
-                <div>
-                    <button>Like</button>
-                    <div>
-                        <label htmlFor="imageDate">Choose a previous date to view</label>
-                        <input type="date" id="imageDate" max={getCurrentDate()} onChange={(e) => props.changeDate(e.target.value)}></input>
-                    </div>
-                </div>
+                <button>Like</button>
             </section>
 
         </article>

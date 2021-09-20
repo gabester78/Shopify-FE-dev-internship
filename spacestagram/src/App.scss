@@ -9,16 +9,36 @@ header {
   width: 50%;
   margin: 0px auto;
 
-  h1 {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 8rem;
-    margin-bottom: 0px;
-    letter-spacing: 0.2rem;
-  }
+  section {
+    h1 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 8rem;
+      margin-bottom: 0px;
+      letter-spacing: 0.2rem;
+    }
 
-  p {
-    font-size: 2rem;
-    margin-top: 0px;
+    p {
+      font-size: 2rem;
+      margin-top: 0px;
+    }
+  }
+}
+
+section {
+  div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    label {
+      font-size: 1.5rem;
+      margin-top: 0px;
+      margin-right: 10px;
+    }
+
+    input {
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -72,22 +92,6 @@ article {
     div {
       button {
         font-size: 1.4rem;
-      }
-
-      div {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-
-        label {
-          font-size: 1.5rem;
-          margin-top: 0px;
-          margin-right: 10px;
-        }
-
-        input {
-          font-size: 1.5rem;
-        }
       }
     }
   }
