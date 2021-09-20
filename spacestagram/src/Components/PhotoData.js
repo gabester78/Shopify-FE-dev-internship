@@ -31,7 +31,6 @@ const PhotoData = (props) => {
   const [imageDay, setImageDay] = useState("")
   const [newSingleImageData, setNewSingleImageData] = useState([]);
   const [singleDay, setSingleDay] = useState(false)
-
   
   const [startDate, setStartDate] = useState(getYesterdayDate)
   const [endDate, setEndDate] = useState("")
@@ -89,17 +88,17 @@ const PhotoData = (props) => {
 
       <header>
 
-        <section>
           <h1>Spacestagram</h1>
-          <p>Made possible by Nasa's Astronomy Picture of the Day API</p>
-        </section>
+          <p>Nasa's Astronomy Picture of the Day API</p>
 
-        <section>
+      </header>
+
+      <article className="datesContainer">
 
           <label htmlFor="imageDate">Choose a previous date to view</label>
           <input type="date" id="imageDate" max={getCurrentDate()} onChange={(e) => setImageDay(e.target.value)}></input>
           <button onClick={fetchSingleDay}>Submit date</button>
-          <h2>Or choose a range of dates to view</h2>
+          <p className="divider">Or choose a range of dates to view</p>
 
           <div className="rangeContainer">
             <label htmlFor="imageStartDate">Choose a start date</label>
@@ -109,12 +108,13 @@ const PhotoData = (props) => {
             <button onClick={fetchDayRange}>Submit range of dates</button>
           </div>
 
-        </section>
-
-      </header>
+      </article>
 
       {defaultDay && (<Photo data={singleImageData}/>)}
+      {/* Displays current day's image */}
+
       {singleDay && (<Photo data={newSingleImageData}/>)}
+      {/* Displays selected day image */}
 
       {switchDisplayType && (multipleImageData.map((day, index) => {
         return (
@@ -122,6 +122,7 @@ const PhotoData = (props) => {
         )
         }))
       }
+      {/* Displays images from range of dates */}
 
     </main>
   )
