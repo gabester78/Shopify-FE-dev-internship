@@ -2,16 +2,6 @@ import React from "react";
 import ReactPlayer from 'react-player'
 
 const Photo = (props) => {
-    
-    const getCurrentDate = () => {
-
-        var date = new Date().getDate();
-        var month = new Date().getMonth() + 1;
-        var year = new Date().getFullYear();
-        var formattedMonth =  month < 10 ? '0' + month : '' + month
-
-        return year + '-' + formattedMonth + '-' + date;
-    }
 
     return (
         <article>
@@ -22,13 +12,13 @@ const Photo = (props) => {
                 )}
 
                 {props.data.media_type === 'video' && (
-                    <ReactPlayer url={props.data.url} width={'100%'} controls={true} style={{marginBottom:"-20px"}}/>  
+                    <ReactPlayer url={props.data.url} width={'100%'} controls={true} style={{borderTopLeftRadius: "20px", borderTopRightRadius: "20px", overflow:"hidden"}}/>
                 )}
             </section>
             
             <section className="dataDetails">
                 <div>
-                    <h2>{props.data.title}</h2>
+                    <h3>{props.data.title}</h3>
                     <time>{props.data.date}</time>
                 </div>
                 {props.data.copyright && (

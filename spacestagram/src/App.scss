@@ -22,14 +22,8 @@ header {
       margin-top: 0px;
     }
   }
-}
 
-section {
-  div {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-
+  section {
     label {
       font-size: 1.5rem;
       margin-top: 0px;
@@ -37,6 +31,29 @@ section {
     }
 
     input {
+      font-size: 1.5rem;
+      margin-right: 15px;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      border-bottom: 1px solid black;
+      border-top: 1px solid black;
+      padding: 20px 0px;
+    }
+
+    .rangeContainer {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .startDate {
+        margin-right: 20px;
+      }
+    }
+
+    button {
+      padding: 3px 20px;
       font-size: 1.5rem;
     }
   }
@@ -69,7 +86,7 @@ article {
       align-items: center;
       justify-content: space-between;
 
-      h2 {
+      h3 {
         font-size: 2.2rem;
         margin: 0px;
       }
@@ -88,11 +105,8 @@ article {
       font-size: 1.6rem;
       line-height: 1.5;
     }
-
-    div {
-      button {
-        font-size: 1.4rem;
-      }
+    button {
+      font-size: 1.4rem;
     }
   }
 }
