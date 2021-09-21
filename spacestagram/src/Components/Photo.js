@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import ReactPlayer from 'react-player'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faShare } from '@fortawesome/free-solid-svg-icons'
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+// import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 
 const Photo = (props) => {
@@ -21,10 +21,10 @@ const Photo = (props) => {
     }
 
     const [shareButton, setShareButton] = useState("Copy URL")
-    const [shareURL, setShareURL] = useState({
-        value: "https://shopify-fe-dev-internship-npp295qd0-gabester78.vercel.app/",
-        copied: false,
-    })
+    // const [shareURL, setShareURL] = useState({
+    //     value: "https://shopify-fe-dev-internship-npp295qd0-gabester78.vercel.app/",
+    //     copied: false,
+    // })
 
     const changeShare = () => {
         setShareButton("Copied")
@@ -56,13 +56,13 @@ const Photo = (props) => {
                         <p>{likeButton}</p>
                     </div>
 
-                    <CopyToClipboard onCopy={() => setShareURL({copied: true})} text={shareURL.value}>
+                    {/* <CopyToClipboard onCopy={() => setShareURL({copied: true})} text={shareURL.value}> */}
                     <div onClick={changeShare} className="blue"> 
                         <FontAwesomeIcon id="icons" icon={faShare} />
                         <p>{shareButton}</p>
                         
                     </div>
-                    </CopyToClipboard>
+                    {/* </CopyToClipboard> */}
                     
                 </article>
 
