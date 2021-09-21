@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 
+$mobile: 500px; //Mobile Screen Size
+$tablet: 800px; //Tablet Screen Size
+$desktop: 1300px; //Desktop Screen Size
+
 * {
   font-size: 62.5%;
   font-family: "Roboto", sans-serif;
@@ -9,11 +13,20 @@ body {
   background-image: linear-gradient(to bottom right, black, #002054);
 }
 
+//start photodata css
+
 main {
-  width: 50%;
+  width: 55%;
   margin: 0px auto;
   background-color: #fff;
-  padding: 1px 30px 0px 30px;
+  padding: 1px 30px 30px 30px;
+  @media (max-width: $desktop) {
+    width: 85%;
+  }
+  @media (max-width: $mobile) {
+    width: 85%;
+    padding: 1px 15px 15px 15px;
+  }
 
   header {
     width: 100%;
@@ -24,7 +37,13 @@ main {
     color: white;
     padding: 0px 30px;
     box-sizing: border-box;
-    background-image: linear-gradient(to bottom right, black, #002054);
+    background: url(/assets/Outer-Space.jpg) no-repeat;
+    @media (max-width: $desktop) {
+      flex-direction: column;
+    }
+    @media (max-width: $mobile) {
+      margin: 15px auto 35px auto;
+    }
 
     h1 {
       font-family: "Bebas Neue", sans-serif;
@@ -32,6 +51,13 @@ main {
       margin-bottom: 0px;
       margin-top: 5px;
       letter-spacing: 0.2rem;
+      text-shadow: 2px 2px 8px #000;
+      @media (max-width: $desktop) {
+        margin-bottom: -10px;
+      }
+      @media (max-width: $mobile) {
+        font-size: 5.1rem;
+      }
     }
 
     p {
@@ -39,13 +65,31 @@ main {
       font-weight: 700;
       margin-top: 0px;
       margin-bottom: 0px;
+      text-shadow: 2px 2px 3px #000;
+      margin-left: 30px;
+      text-align: center;
+      @media (max-width: $desktop) {
+        width: auto;
+        margin-left: 0px;
+        margin-bottom: 10px;
+      }
+      @media (max-width: $mobile) {
+        font-size: 1.8rem;
+        width: 100%;
+        margin-top: 5px;
+      }
     }
   }
 
   .datesContainer {
-    background-color: #fff;
     width: 100%;
     padding-bottom: 0px;
+    @media (max-width: $desktop) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     label {
       font-size: 1.5rem;
       margin-top: 0px;
@@ -55,6 +99,25 @@ main {
     input {
       font-size: 1.5rem;
       margin-right: 15px;
+      @media (max-width: $mobile) {
+        margin-top: 5px;
+      }
+    }
+
+    .singeDateContainer {
+      display: flex;
+      align-items: baseline;
+      @media (max-width: $desktop) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .singeDateInput {
+        @media (max-width: $desktop) {
+          margin-bottom: 20px;
+          margin-top: 5px;
+        }
+      }
     }
 
     .divider {
@@ -71,10 +134,22 @@ main {
       display: flex;
       align-items: center;
       margin-bottom: 40px;
-      background-color: #fff;
+
+      @media (max-width: $desktop) {
+        flex-direction: column;
+        align-items: baseline;
+        align-items: center;
+      }
 
       .startDate {
         margin-right: 20px;
+      }
+
+      .rangeDate {
+        @media (max-width: $desktop) {
+          margin-bottom: 20px;
+          margin-top: 5px;
+        }
       }
     }
 
@@ -100,6 +175,10 @@ main {
       }
     }
   }
+
+  //end photodata css
+
+  //start photo css
 
   article {
     width: 100%;
@@ -163,7 +242,6 @@ main {
 
         div {
           box-sizing: border-box;
-          width: 115px;
           border: 1px solid red;
           border-radius: 10px;
           color: red;
@@ -227,6 +305,33 @@ main {
       color: #fff;
       outline: 0;
       box-shadow: 0 0 40px 40px #002054 inset;
+    }
+  }
+
+  //end photo css
+
+  footer {
+    width: 100%;
+    height: 75px;
+    background: url(/assets/Footer-Space.jpg) no-repeat;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+
+    p {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-left: 30px;
+      text-shadow: 2px 2px 1px #000;
+    }
+
+    #shuttle {
+      color: white;
+      font-size: 6rem;
+      margin-right: 30px;
+      text-shadow: 2px 2px 0px #000;
     }
   }
 }

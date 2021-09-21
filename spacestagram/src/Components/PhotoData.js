@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Photo from "./Photo"
+import Photo from "./Photo";
+import Footer from "./Footer";
 
 const PhotoData = (props) => {
 
@@ -93,35 +94,35 @@ const PhotoData = (props) => {
     <main>
 
       <header>
-
-          <h1>Spacestagram</h1>
-          <p>Nasa's Astronomy Picture of the Day API</p>
-
+        <h1>Spacestagram</h1>
+        <p>Nasa's Astronomy Picture of the Day API</p>
       </header>
 
       <article className="datesContainer">
 
+        <section className="singeDateContainer">
           <label htmlFor="imageDate">Choose a previous date to view</label>
-          <input type="date" id="imageDate" max={getCurrentDate()} onChange={(e) => setImageDay(e.target.value)}/>
+          <input className="singeDateInput" type="date" id="imageDate" max={getCurrentDate()} onChange={(e) => setImageDay(e.target.value)}/>
           <button className="blue" onClick={fetchSingleDay}>Submit date</button>
+        </section>
+
           <p className="divider">Or choose a range of dates to view</p>
 
-          <div className="rangeContainer">
-            <label htmlFor="imageStartDate">Choose a start date</label>
-            <input className="startDate" type="date" id="imageStartDate" max={getYesterdayDate()} onChange={(e) => setStartDate(e.target.value)} />
-            <label htmlFor="imageEndDate">Choose a end date</label>
-            <input type="date" id="imageEndDate" max={getCurrentDate()} onChange={(e) => setEndDate(e.target.value)} />
+        <section className="rangeContainer">
+          <label htmlFor="imageStartDate">Choose a start date</label>
+          <input className="startDate rangeDate" type="date" id="imageStartDate" max={getYesterdayDate()} onChange={(e) => setStartDate(e.target.value)} />
+          <label htmlFor="imageEndDate">Choose a end date</label>
+          <input className="rangeDate" type="date" id="imageEndDate" max={getCurrentDate()} onChange={(e) => setEndDate(e.target.value)} />
               
-              <div>
-                <button className="blue" onClick={fetchDayRange}>Submit range of dates</button>
-                {dateError && (
-                  <div className="errorContainer">
-                    <p id="errorMessage">The start date can not be higher than the end date.</p>
-                  </div>)
-                }
-            </div>
-          
+          <div>
+            <button className="blue" onClick={fetchDayRange}>Submit range of dates</button>
+            {dateError && (
+              <div className="errorContainer">
+                <p id="errorMessage">The start date can not be higher than the end date.</p>
+              </div>)
+            }
           </div>
+        </section>
 
       </article>
 
@@ -139,6 +140,7 @@ const PhotoData = (props) => {
       }
       {/* Displays images from range of dates */}
 
+      <Footer />
     </main>
   )
 }
