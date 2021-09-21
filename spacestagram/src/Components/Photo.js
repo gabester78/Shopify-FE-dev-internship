@@ -22,7 +22,7 @@ const Photo = (props) => {
 
     const [shareButton, setShareButton] = useState("Copy URL")
     const [shareURL, setShareURL] = useState({
-        value: "https://shopify-fe-dev-internship-npp295qd0-gabester78.vercel.app/",
+        value: "https://shopify-fe-dev-internship-nzrwqulxp-gabester78.vercel.app/",
         copied: false,
     })
 
