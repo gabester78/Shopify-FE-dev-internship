@@ -27,7 +27,7 @@ const Photo = (props) => {
     })
 
     const changeShare = () => {
-        setShareButton("URL Copied")
+        setShareButton("Copied")
     }
 
     return (
